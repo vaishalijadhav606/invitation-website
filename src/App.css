@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+body {
+    font-family: 'Poppins', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+    position: fixed;
+    width: 100%;
+    box-shadow: -21.213px 21.213px 30px 0px rgb(158 158 158 / 30%);
+    top: 0;
+    padding: 5px 0;
+    background-color: #fff;
+    z-index: 9999;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin: 0px;
+    padding: 5px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header li {
+    padding: 7px 25px;
+    cursor: pointer;
+    color: #000;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-.App-link {
-  color: #61dafb;
+.header li:hover,
+.active {
+    color: red;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title {
+    text-transform: uppercase;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.heart-icon {
+    padding: 10px 30px;
+    width: 45px;
+    z-index: 2;
+    position: relative;
+}
+
+.hearts-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.hearts-underline::before,
+.hearts-underline::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 50px;
+    height: 1px;
+    background-color: #000;
+    z-index: 1;
+}
+
+.hearts-underline::before {
+    left: -30px;
+}
+
+.hearts-underline::after {
+    right: -30px;
+}
+
+.countNumberWebkit {
+    font-size: 3em;
+    height: auto;
+    background: #FFFFFF;
+    margin-top: 0;
+    padding-top: 0;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    font-weight: 600;
+    background: linear-gradient( 156deg, red, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
