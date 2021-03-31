@@ -30,29 +30,77 @@ const subheading = {
 }
 
 class About extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          windowWidth: 0,
+          windowHeight: 0
+        };
+    
+        this.updateDimensions = this.updateDimensions.bind(this);
+      }
+    
+      componentDidMount() {
+        this.updateDimensions();
+        window.addEventListener("resize", this.updateDimensions);
+      }
+    
+      componentWillUnmount() {
+        window.removeEventListener("resize", this.updateDimensions);
+      }
+    
+      updateDimensions() {
+        let windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+        let windowHeight = typeof window !== "undefined" ? window.innerHeight : 0;
+    
+        this.setState({ windowWidth, windowHeight });
+      }
+
+      
     render() {
+        const { windowWidth } = this.state;
+        const ipadCss = windowWidth < 1024;
+        const mobileCss = windowWidth < 768;
+
+        const container = {
+            display: 'flex', 
+            alignItems: 'center',
+            flexDirection: ipadCss ? 'column' : 'row',
+        }
+
+        const col6 = {
+            width: ipadCss ? '100%' : '50%', 
+            padding: ipadCss ? '10px' : '30px', 
+            textAlign: 'center',
+        }
+
+        const mainContent = {
+            backgroundColor: '#f2f1ed',
+            padding: mobileCss ? '30px' :'50px 70px'
+        }
+
         return (
-            <div style={{backgroundColor: '#f2f1ed',padding: '50px 70px'}}>
-                <div style={{display: 'flex', alignItems: 'center'}}>
-                    <div style={{width: '50%', padding: '30px', textAlign: 'center'}}>
+            <div style={mainContent}>
+                <div style={container}>
+                    <div style={col6}>
                         <img src={groom} style={personalImg}/>    
                         <div style={name}>Santosh Gaikar</div>
                     </div> 
-                    <div style={{width: '50%', padding: '30px', textAlign: 'center'}}>
+                    <div style={col6}>
                         <div style={subheading}>She Says...</div>
                         <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse"</p>
                     </div>  
                 </div> 
-                <div style={{display: 'flex', alignItems: 'center'}}>
-                    <div style={{width: '50%', padding: '30px', textAlign: 'center'}}>
+                <div style={container}>
+                    <div style={col6}>
                         <div style={subheading}>He Says...</div>
                         <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse"</p>
                     </div>  
-                    <div style={{width: '50%', padding: '30px', textAlign: 'center'}}>
+                    <div style={col6}>
                         <img src={bride} style={personalImg}/>    
                         <div style={name}>Vaishali Jadhav</div>
                     </div> 
