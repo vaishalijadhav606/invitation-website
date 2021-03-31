@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import bannerImg from '../assets/img/1K1A9702.jpg';
 import heart from '../assets/img/Untitled-1.svg';
-import side1 from '../assets/img/1K1A9655.jpg';
-import side2 from '../assets/img/1K1A9681.jpg';
 import About from './About';
 import Countdown from './Countdown';
 import Greetings from './Greetings';
@@ -77,13 +75,6 @@ function Home() {
             </div>
             <div id="When" >
                 <When />
-            </div>
-            <div style={{display: 'flex', alignItems: 'center',justifyContent: 'center',backgroundColor: '#f2f1ed'}}>
-                <img src={side1} style={{width: '33%', height:'500px', objectFit: 'cover'}}/>
-                <div className="creadit-text" style={{width: '33%'}}>
-                    Made with Love <br /> Vaishali ❤️ Santosh 
-                </div>
-                <img src={side2} style={{width: '33%', height:'500px', objectFit: 'cover'}}/>
             </div>
         </div>
     );
