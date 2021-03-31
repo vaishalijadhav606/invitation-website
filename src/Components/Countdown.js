@@ -1,19 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import heart from '../assets/img/Untitled-1.svg';
-
-const timerCard = {
-    width: '13%',
-    height: 'auto',
-    background: '#FFFFFF',
-    float: 'left',
-    padding: '10px 0',
-    margin: '0 15px',
-    boxShadow: '5px 6px 9px 1px rgb(53 53 53 / 50%)',
-    borderRadius: '5px',
-}
-// const countNumber = {
-    
-// }
+import {useMediaQuery} from './hooks';
 
 const counttext = {
     height: 'auto',
@@ -61,17 +48,30 @@ function Countdown() {
         return timeLeft;
     }
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+    const isIpadBased = useMediaQuery('(min-width: 768px) and (max-width: 900px)');
+    const isMobileBased = useMediaQuery('(max-width: 767px)');
     
     useEffect(() => {
         const timer = setTimeout(() => {
           setTimeLeft(calculateTimeLeft());
         }, 1000);
-    
-        // Clear timeout if the component is unmounted
         return () => clearTimeout(timer);
     });
     
     const timerComponents = [];
+
+    const styles = {
+        container: (isIpadBased, isMobileBased) => ({
+            width: isIpadBased ? '22%' : isMobileBased ? '60%' : '13%',
+            height: 'auto',
+            background: '#FFFFFF',
+            float: 'left',
+            padding: '10px 0',
+            margin: '10px 15px',
+            boxShadow: '5px 6px 9px 1px rgb(53 53 53 / 50%)',
+            borderRadius: '5px',
+        })
+      };
     
     Object.keys(timeLeft).forEach((interval) => {
       if (!timeLeft[interval]) {
@@ -79,7 +79,7 @@ function Countdown() {
       }
     
       timerComponents.push(
-        <div style={timerCard}>
+        <div style={styles.container(isIpadBased, isMobileBased)}>
           <span className="countNumberWebkit">{timeLeft[interval]}</span> <span style={counttext}>{interval}</span>{" "}
         </div>
       );
@@ -87,12 +87,12 @@ function Countdown() {
 
     return (
         <div>
-            <div style={{padding: '50px 70px', textAlign: 'center'}}>
+            <div style={{padding: isMobileBased ? '30px' : '50px 70px', textAlign: 'center'}}>
                 <div className="title">And the countdown begins</div>
                 <span className="hearts-underline">
                     <img src={heart} className="heart-icon"/>
                 </span>
-                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '20px'}}>
+                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: isMobileBased ? 'column' : 'row'}}>
                     {timerComponents.length ? timerComponents : <span>Time's up!</span>}    
                 </div>
             </div>

@@ -163,3 +163,15 @@ body {
     text-align: center;
     padding: 15px;
 }
+
+@media (max-width: 767px) {
+    .title {
+        font-size: 25px;
+    }
+    .info-content {
+        padding: 1rem;
+    }
+    .creadit-text {
+        font-size: 9px;
+    }
+}

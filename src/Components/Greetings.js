@@ -4,6 +4,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import articles from "../data.json";
 import Card from "./Card";
+import {useMediaQuery} from './hooks';
 
 const responsive = {
     superLargeDesktop: {
@@ -32,11 +33,14 @@ const ArticleCard = ({ imageUrl, name, from, content }) => {
 
 function Greetings(props) {
 
+  const isIpadBased = useMediaQuery('(min-width: 768px) and (max-width: 900px)');
+  const isMobileBased = useMediaQuery('(max-width: 767px)');
+
     const children = articles
         .slice(0, ).map(article => <ArticleCard key={article.name} {...article} />)
 
     return (
-        <div style={{backgroundColor: '#f2f1ed',padding: '50px 70px',display: 'flex', alignItems: 'center', justifyContent:'center'}}>
+        <div style={{backgroundColor: '#f2f1ed',padding: isMobileBased ? '30px' : isIpadBased ? '35px' : '50px 70px' ,display: 'flex', alignItems: 'center', justifyContent:'center'}}>
             <div style={{textAlign: 'center'}}>
                 <div className="title">Sweet Message</div>
                 <span className="hearts-underline">

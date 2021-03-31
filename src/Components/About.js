@@ -77,6 +77,14 @@ class About extends Component {
         const mainContent = {
             backgroundColor: '#f2f1ed',
             padding: mobileCss ? '30px' :'50px 70px'
+        }   
+
+        const dsmblock = {
+            display: ipadCss ? 'none' : 'block'
+        }
+
+        const dmdblock = {
+            display: ipadCss ? 'block' : 'none'
         }
 
         return (
@@ -94,13 +102,17 @@ class About extends Component {
                     </div>  
                 </div> 
                 <div style={container}>
+                    <div style={{...col6, ...dmdblock}}>
+                        <img src={bride} style={personalImg}/>    
+                        <div style={name}>Vaishali Jadhav</div>
+                    </div> 
                     <div style={col6}>
                         <div style={subheading}>He Says...</div>
                         <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse"</p>
                     </div>  
-                    <div style={col6}>
+                    <div style={{...col6, ...dsmblock}}>
                         <img src={bride} style={personalImg}/>    
                         <div style={name}>Vaishali Jadhav</div>
                     </div> 

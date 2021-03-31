@@ -6,6 +6,7 @@ import About from './About';
 import Countdown from './Countdown';
 import Greetings from './Greetings';
 import When from './When';
+import {useMediaQuery} from './hooks';
 
 
 const Banner = styled.div((props)=>({
@@ -33,27 +34,31 @@ const heading = {
     justifyContent: 'flex-end'
 }
 
-const cursive = {
-    fontFamily: 'Dancing Script',
-    fontSize: '60px',
-    textTransform: 'capitalize',
-    fontWeight: '700'
-}
 
 const icon = {
     height: '55px',
     paddingTop: '15px'
 }
 
-const cursive1 = {
-    fontFamily: 'Dancing Script',
-    fontSize: '60px',
-    textTransform: 'capitalize',
-    paddingBottom: '40px',
-    fontWeight: '700'
-}
 
 function Home() {
+    
+    const isMobileBased = useMediaQuery('(max-width: 767px)');
+    
+    const cursive = {
+        fontFamily: 'Dancing Script',
+        fontSize: isMobileBased ? '45px' : '60px',
+        textTransform: 'capitalize',
+        fontWeight: '700'
+    }
+
+    const cursive1 = {
+        fontFamily: 'Dancing Script',
+        fontSize: isMobileBased ? '45px' : '60px',
+        textTransform: 'capitalize',
+        paddingBottom: '40px',
+        fontWeight: '700'
+    }
 
     return (
         <div style={{marginTop: '57px'}}>
