@@ -86,3 +86,80 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+.react-multi-carousel-list {
+    align-items: flex-start !important;
+}
+
+.react-multi-carousel-track {
+    height: 100%;
+}
+
+.react-multi-carousel-item {
+    height: 81%;
+}
+
+.custom-scroll::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px transparent;
+    border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    background: #F1D8B9;
+    border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: #F1D8B9;
+}
+
+.info-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-left: 5px solid #d10000 !important;
+    border: 1px solid transparent;
+    box-shadow: 0 0 20px 0px #cccccc87;
+}
+
+.meta b {
+    color: purple;
+    display: inline-block;
+}
+
+.meta a {
+    color: purple;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.meta a:hover {
+    text-decoration: underline;
+}
+
+.map-btn {
+    background-color: #007bff;
+    color: #fff !important;
+    display: inline-block;
+    padding: 10px 20px 10px 15px;
+    border-radius: 5px;
+    font-weight: normal;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.creadit-text {
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient( 156deg, red, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    padding: 15px;
+}

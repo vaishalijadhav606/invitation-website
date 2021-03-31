@@ -9,7 +9,7 @@ const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 5
+      items: 4
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -25,15 +25,15 @@ const responsive = {
     }
 };
 
-const ArticleCard = ({ imageUrl, link, title }) => {
-    return <Card link={link} image={imageUrl} headline={title} />;
+const ArticleCard = ({ imageUrl, name, from, content }) => {
+    return <Card image={imageUrl} headline={name} description={content} from={from} />;
   };
   
 
 function Greetings(props) {
 
     const children = articles
-        .slice(0, 6).map(article => <ArticleCard key={article.title} {...article} />)
+        .slice(0, ).map(article => <ArticleCard key={article.title} {...article} />)
 
     return (
         <div style={{backgroundColor: '#f2f1ed',padding: '50px 70px',display: 'flex', alignItems: 'center', justifyContent:'center'}}>
@@ -42,10 +42,16 @@ function Greetings(props) {
                 <span className="hearts-underline">
                     <img src={heart} className="heart-icon"/>
                 </span>     
-                <div>
-                <Carousel responsive={responsive} centerMode={true}>
-                    {children}
-                </Carousel>
+                <div style={{display: 'grid', height: '380px'}}>
+                  <Carousel 
+                    responsive={responsive} 
+                    infinite={true}
+                    autoPlaySpeed={1000}
+                    showDots={true}
+                    removeArrowOnDeviceType={["tablet", "mobile", "superLargeDesktop", "desktop"]}
+                  >
+                      {children}
+                  </Carousel>
                 </div>
             </div>
         </div>
