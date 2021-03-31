@@ -22,19 +22,6 @@ const Banner = styled.div((props)=>({
     textAlign: 'center'
 }));
 
-const heading = {
-    width: '100%',
-    height: '100%',
-    color: '#fff',
-    backgroundColor: '#00000044',
-    borderRadius: '5px',
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
-    justifyContent: 'flex-end'
-}
-
-
 const icon = {
     height: '55px',
     paddingTop: '15px'
@@ -56,12 +43,24 @@ function Home() {
         fontFamily: 'Dancing Script',
         fontSize: isMobileBased ? '45px' : '60px',
         textTransform: 'capitalize',
-        paddingBottom: '40px',
+        paddingBottom: isMobileBased ? '80px' : '40px',
         fontWeight: '700'
     }
 
+    const heading = {
+        width: '100%',
+        height: '100%',
+        color: '#fff',
+        backgroundColor: '#00000044',
+        borderRadius: isMobileBased ? '0' : '5px',
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column',
+        justifyContent: 'flex-end'
+    }
+
     return (
-        <div style={{marginTop: '57px'}}>
+        <div style={{marginTop: isMobileBased ? '0' : '57px'}}>
             <div id="home">
                 <Banner bg={bannerImg}>
                     <div style={heading}>
