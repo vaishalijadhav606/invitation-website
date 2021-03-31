@@ -33,7 +33,7 @@ const ArticleCard = ({ imageUrl, name, from, content }) => {
 function Greetings(props) {
 
     const children = articles
-        .slice(0, ).map(article => <ArticleCard key={article.title} {...article} />)
+        .slice(0, ).map(article => <ArticleCard key={article.name} {...article} />)
 
     return (
         <div style={{backgroundColor: '#f2f1ed',padding: '50px 70px',display: 'flex', alignItems: 'center', justifyContent:'center'}}>
