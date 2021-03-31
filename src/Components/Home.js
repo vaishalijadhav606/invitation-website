@@ -60,7 +60,7 @@ function Home() {
     }
 
     return (
-        <div style={{marginTop: isMobileBased ? '0' : '57px'}}>
+        <div style={{marginTop: isMobileBased ? '0' : '57px', marginBottom: isMobileBased ? '75px' : '0'}}>
             <div id="home">
                 <Banner bg={bannerImg}>
                     <div style={heading}>
