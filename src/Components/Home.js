@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import bannerImg from '../assets/img/1K1A9702.jpg';
+import bannerImg from '../assets/img/1K1A9702.webp';
 import heart from '../assets/img/Untitled-1.svg';
 import About from './About';
 import Countdown from './Countdown';

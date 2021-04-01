@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import heart from '../assets/img/Untitled-1.svg';
-import whenImg from '../assets/img/1K1A9688.jpg';
-import side1 from '../assets/img/1K1A9655.jpg';
-import side2 from '../assets/img/1K1A9681.jpg';
+import whenImg from '../assets/img/1K1A9688.webp';
+import side1 from '../assets/img/1K1A9655.webp';
+import side2 from '../assets/img/1K1A9681.webp';
 import {useMediaQuery} from './hooks';
 
 function When(props) {

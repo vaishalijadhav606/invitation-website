@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import groom from '../assets/img/groom.jpg'
-import bride from '../assets/img/bride.jpg'
+import groom from '../assets/img/groom.webp'
+import bride from '../assets/img/bride.webp'
 
 const personalImg = {
     width: '280px',
